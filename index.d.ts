@@ -621,6 +621,8 @@ declare namespace Shopify {
     autoLimit?: boolean | IAutoLimit;
     shopName: string;
     timeout?: number;
+    packageName: string;
+    packageVersion: string;
   }
 
   export interface IPrivateShopifyConfig {
@@ -630,6 +632,8 @@ declare namespace Shopify {
     password: string;
     shopName: string;
     timeout?: number;
+    packageName: string;
+    packageVersion: string;
   }
 
   export interface ICallLimits {
