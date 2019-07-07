@@ -11,8 +11,6 @@ const got = require('got');
 const urlLib = require('url');
 const fs = require('fs');
 
-const pkg = require('./package');
-
 /**
  * Creates a Shopify instance.
  *
@@ -36,6 +34,9 @@ function Shopify(options) {
     options.accessToken && (options.apiKey || options.password)
   ) {
     throw new Error('Missing or invalid options');
+  }
+  if (!options.packageName || !options.packageVersion){
+    throw new Error('Missing package name & version in options');
   }
 
   EventEmitter.call(this);
@@ -106,7 +107,7 @@ Shopify.prototype.updateLimits = function updateLimits(header) {
  */
 Shopify.prototype.request = function request(url, method, key, params) {
   const options = assign({
-    headers: { 'User-Agent': `${pkg.name}/${pkg.version}` },
+    headers: { 'User-Agent': `${options.packageName}/${options.packageVersion}` },
     timeout: this.options.timeout,
     json: true,
     retries: 0,
@@ -175,7 +176,7 @@ Shopify.prototype.graphql = function graphql(data) {
   const url = assign({ path: path }, this.baseUrl);
   const options = assign({
     headers: {
-      'User-Agent': `${pkg.name}/${pkg.version}`,
+      'User-Agent': `${options.packageName}/${options.packageVersion}`,
       'Content-Type': 'application/graphql'
     },
     timeout: this.options.timeout,
