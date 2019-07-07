@@ -1,6 +1,6 @@
 {
   "name": "shopify-api-node",
-  "version": "2.20.1",
+  "version": "2.20.11",
   "description": "Shopify API bindings for Node.js",
   "main": "index.js",
   "directories": {
@@ -40,7 +40,6 @@
     "lint",
     "test"
   ],
-  "repository": "MONEI/Shopify-api-node",
   "keywords": [
     "Shopify",
     "API",
