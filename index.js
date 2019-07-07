@@ -20,6 +20,8 @@ const fs = require('fs');
  * @param {String} options.password The private app password
  * @param {String} options.accessToken The persistent OAuth public app token
  * @param {String} [options.apiVersion] The Shopify API version to use
+ * @param {String} options.packageName The name of the package of the app for generating useragent headers
+ * @param {String} options.packageVersion The version of the package of the app for useragent headers
  * @param {Boolean|Object} [options.autoLimit] Limits the request rate
  * @param {Number} [options.timeout] The request timeout
  * @constructor
