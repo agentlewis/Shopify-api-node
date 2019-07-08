@@ -230,3 +230,4 @@ fs.readdirSync(path.join(__dirname, 'resources')).forEach(name => {
 });
 
 module.exports = Shopify;
+export default Shopify
